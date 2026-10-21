@@ -2,7 +2,7 @@
 
 D-SIDE is maintained at https://github.com/s20011208/D-SIDE.
 
-No project-level reuse license was present in the source research workspace, and no new license is assigned by this packaging release. Public availability does not by itself assign an open-source reuse license. Contact the repository maintainer concerning reuse permissions.
+The repository owner selected the MIT License when initializing the public D-SIDE repository. That owner-supplied LICENSE file, including its copyright notice, is preserved unchanged. The earlier research workspace had no project-level license; the public repository now provides the owner-selected license.
 
 The numerical source mapping is recorded in `source_provenance.json`. Included example data are synthetic simulation records generated for this project. The decorative banner and workflow are explicitly schematic; quantitative figures identify their actual saved experiments.
 

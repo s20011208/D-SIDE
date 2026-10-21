@@ -167,4 +167,4 @@ The numerical backend is copied unchanged from the frozen research implementatio
 
 **D-SIDE — Distributional Selective Integration for Dynamics Estimation** is research software maintained at [s20011208/D-SIDE](https://github.com/s20011208/D-SIDE). It builds on integral trajectory matching, kernel estimation, and correlation clustering. See the [references and acknowledgments](docs/references.md) for attribution.
 
-This release has no associated publication or DOI. A project-level reuse license has not yet been specified; no third-party license is applied to this code. See [NOTICE.md](NOTICE.md).
+This release has no associated publication or DOI. It is distributed under the [MIT License](LICENSE), selected by the repository owner. See [NOTICE.md](NOTICE.md) for provenance and third-party attribution.
