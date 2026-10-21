@@ -38,7 +38,10 @@ jobs:
           python -m pip install -r requirements.lock.txt
           python -m pip install -e . --no-deps --no-build-isolation
       - name: Run numerical and release regression tests
-        run: python -m pytest -q
+        run: python -m pytest -q --junitxml=runs/pytest.xml
+      - name: Expose test failures as public check annotations
+        if: always()
+        run: python scripts/report_test_failures.py --report runs/pytest.xml
       - name: Audit published result tables
         run: dside audit-results
       - name: Replay the fixed example
