@@ -15,7 +15,8 @@
   "frozen_replay": {
     "arrays_verified": 480,
     "trial_scores_verified": 400,
-    "maximum_absolute_prediction_difference": 0.0
+    "maximum_absolute_prediction_difference": 0.0,
+    "scope": "Historical local Python 3.8.10 verification on the original CPU-dispatched BLAS kernel; zero difference is not a cross-hardware guarantee."
   },
   "published_table_source_method_rows_verified": 1600,
   "documentation_links_verified": 39,
@@ -31,5 +32,133 @@
     "document_height": 4980
   },
   "scope": "Independent locked installation, focused tests, complete fixed historical example, frozen prediction replay, table audits, links, SVG, and real Chromium README preview. Full multi-seed benchmarks were not rerun during packaging.",
-  "ci_status": "GitHub Actions workflow supplied; remote result is not asserted by this local receipt."
+  "ci_status": "GitHub Actions workflow supplied; remote result is not asserted by this local receipt.",
+  "subsequent_validation": {
+    "validated_at_utc": "2026-10-21T16:23:36.981237+00:00",
+    "tests_passed": 39,
+    "tests_passed_with_haswell_kernel": 39,
+    "new_test": "Checkpoint-only replay from three unique fixed models at absolute tolerance 2e-8.",
+    "documentation_links_verified": 45
+  },
+  "numerical_portability": {
+    "python": "3.8.10",
+    "numpy": "1.24.4",
+    "scipy": "1.10.1",
+    "controlled_change": "Same Python, package versions, source, fixtures and single-thread settings; OPENBLAS_CORETYPE=Haswell instead of the host Cooperlake dispatch.",
+    "blas_haswell": {
+      "numpy/openblas_get_config64_": "OpenBLAS 0.3.21  USE64BITINT DYNAMIC_ARCH NO_AFFINITY Haswell MAX_THREADS=64",
+      "numpy/openblas_get_corename64_": "Haswell",
+      "scipy/openblas_get_config": "OpenBLAS 0.3.18 DYNAMIC_ARCH NO_AFFINITY Haswell MAX_THREADS=64",
+      "scipy/openblas_get_corename": "Haswell"
+    },
+    "full_refit": {
+      "arrays": 480,
+      "trial_scores": 400,
+      "max_abs_prediction_diff": 2.7502438304516375e-07,
+      "max_absolute_trial_mse_diff": 2.8938598489736123e-08,
+      "methods": [
+        {
+          "method": "all_pool",
+          "arrays": 80,
+          "max_abs_prediction_diff": 2.4719119667837575e-08,
+          "curves_outside_original_tolerance": 1,
+          "max_absolute_trial_mse_diff": 5.02331290452851e-09,
+          "mean_trial_mse_new": 0.009417805411426734,
+          "mean_trial_mse_reference": 0.00941780541146311,
+          "mean_mse_difference": -3.637620726771997e-14
+        },
+        {
+          "method": "density_only",
+          "arrays": 80,
+          "max_abs_prediction_diff": 2.7502438304516375e-07,
+          "curves_outside_original_tolerance": 63,
+          "max_absolute_trial_mse_diff": 2.8938598489736123e-08,
+          "mean_trial_mse_new": 0.008423255246889782,
+          "mean_trial_mse_reference": 0.00842325890213424,
+          "mean_mse_difference": -3.6552444565420557e-09
+        },
+        {
+          "method": "independent",
+          "arrays": 80,
+          "max_abs_prediction_diff": 2.6185900325881306e-07,
+          "curves_outside_original_tolerance": 20,
+          "max_absolute_trial_mse_diff": 2.8938598489736123e-08,
+          "mean_trial_mse_new": 0.009386921945729538,
+          "mean_trial_mse_reference": 0.00938692244276595,
+          "mean_mse_difference": -4.970364120277058e-10
+        },
+        {
+          "method": "old",
+          "arrays": 80,
+          "max_abs_prediction_diff": 2.7502438304516375e-07,
+          "curves_outside_original_tolerance": 63,
+          "max_absolute_trial_mse_diff": 2.8938598489736123e-08,
+          "mean_trial_mse_new": 0.008423255246889782,
+          "mean_trial_mse_reference": 0.00842325890213424,
+          "mean_mse_difference": -3.6552444565420557e-09
+        },
+        {
+          "method": "oracle",
+          "arrays": 80,
+          "max_abs_prediction_diff": 2.7502438304516375e-07,
+          "curves_outside_original_tolerance": 63,
+          "max_absolute_trial_mse_diff": 2.8938598489736123e-08,
+          "mean_trial_mse_new": 0.008423255246889782,
+          "mean_trial_mse_reference": 0.00842325890213424,
+          "mean_mse_difference": -3.6552444565420557e-09
+        }
+      ],
+      "selected_core": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "reference_core": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "selected_core_equal": true,
+      "negative_transfer_decision_changes": 0,
+      "negative_transfer_counts": {
+        "nt_new": {
+          "all_pool": 4,
+          "density_only": 0,
+          "independent": 0,
+          "old": 0,
+          "oracle": 0
+        },
+        "nt_reference": {
+          "all_pool": 4,
+          "density_only": 0,
+          "independent": 0,
+          "old": 0,
+          "oracle": 0
+        }
+      }
+    },
+    "fixed_checkpoint_maximum_absolute_prediction_difference": 5.014821891080601e-12,
+    "absolute_tolerances": {
+      "refit_prediction": 1e-06,
+      "refit_trial_mse": 1e-07,
+      "refit_method_mean_mse": 1e-08,
+      "fixed_checkpoint_prediction": 2e-08
+    },
+    "algorithm_and_archived_reference_values_changed": false,
+    "original_ci_failure_runs": [
+      "https://github.com/s20011208/D-SIDE/actions/runs/39632586182",
+      "https://github.com/s20011208/D-SIDE/actions/runs/39633214899"
+    ]
+  },
+  "remote_readme_verification": {
+    "http_status": 200,
+    "all_four_main_images_loaded": true,
+    "screenshot": "Actual GitHub README captured in Chromium; local screenshot retained outside tracked repository."
+  }
 }

@@ -1,0 +1,12 @@
+{
+  "source": "Complete locked Python 3.8.10 release replay of historical illustration seed 2026103000; all 480 prediction arrays matched the archived fixture exactly.",
+  "purpose": "Three unique fitted models for checkpoint-only numerical regression; the shared model covers sources 0-5, singleton models cover sources 6 and 7. No refitting occurs in this check.",
+  "sha256": {
+    "shared/metadata.json": "07f2bdc80124b069d30f514777104fb7ac592a181e64f25a08f3fcb150e10b3f",
+    "shared/arrays.npz": "1cc8158b01553860b9216b582dc9aebc49f10f68f446de831fbbec60663e37e4",
+    "source_6/metadata.json": "7b7cac5ccf0ec541c50e0145ce58a4486d633c369823b93497160c4a7e6435a4",
+    "source_6/arrays.npz": "44329de3ce551d2765aba82418a321c83a134e6fb4f8548ed56d15a665f774e8",
+    "source_7/metadata.json": "e884e3671d1524211254412b0a0d43b5eab3429d4255013eeef878ef364dfe00",
+    "source_7/arrays.npz": "d003ef99b64027383e6aa8f7bdc27da96bd6301e13063840282c83a024cece34"
+  }
+}

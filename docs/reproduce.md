@@ -16,7 +16,9 @@ export OPENBLAS_NUM_THREADS=1
 export OMP_NUM_THREADS=1
 ```
 
-The package metadata declares the supported Python versions. Use the supplied dependency lock for the original dependency set if exact package-version matching is required. Numerical tolerances, not bitwise identity across all hardware and BLAS libraries, are the portable comparison standard.
+The package metadata declares the supported Python versions. Use the supplied dependency lock for exact package-version matching. A lockfile and single-thread settings do not fix CPU-dispatched BLAS kernels, so they do not guarantee bitwise-identical refitting across machines.
+
+The release separates exact provenance checks, numerical regression of a complete refit, and prediction from a fixed fitted checkpoint. Source and fixture hashes and the illustration's source-group labels are checked exactly; refitted floating-point predictions and scores use explicit tolerances. See [numerical portability](numerical_portability.md) for the controlled CPU-kernel diagnostic, the original CI failure, and the comparison thresholds.
 
 The README uses an editable installation from a repository checkout. If installing the built wheel elsewhere, the demo configuration is included in the package, while benchmark tables remain in the checkout: use `dside audit-results --root /path/to/D-SIDE/results/published` to inspect them.
 
@@ -28,7 +30,7 @@ dside demo --output runs/demo
 
 The example should generate one eight-source training dataset, construct labeled scalar statistics, select sources with the released density-only rule, fit independent and selected models, and score genuinely free test trajectories from supplied initial states. It writes the observed data, selection diagnostics, model-fit information, result tables, and figures to the requested output directory. Use a new directory when replaying so previous scientific records remain intact.
 
-The deterministic example seed is a recorded illustration, not a success selected after each rerun. Inspect all included benchmark seeds before drawing performance conclusions.
+The fixed example seed is a recorded illustration, not a success selected after each rerun. Inspect all included benchmark seeds before drawing performance conclusions.
 
 ## Reproduce the recorded benchmark settings
 
@@ -58,7 +60,7 @@ python -m pytest -q
 python scripts/verify_replay.py --run runs/demo
 ```
 
-The result audit checks the compact recorded evidence supplied with the repository. It is distinct from rerunning the full simulation. A successful audit confirms numerical/table consistency under its implemented checks; it does not establish that the statistical procedure is unbiased, universally beneficial, or theoretically identified.
+The result audit checks the compact recorded evidence supplied with the repository. It is distinct from rerunning the full simulation. `verify_replay.py` compares a newly fitted complete example with the archived reference under the full-refit numerical contract; the tests also exercise fixed-checkpoint prediction separately. A successful audit confirms numerical/table consistency under its implemented checks; it does not establish that the statistical procedure is unbiased, universally beneficial, or theoretically identified.
 
 The recorded benchmark compares independent fitting, the unweighted selector, D-SIDE, complete pooling, and a true-group diagnostic reference. Keep all methods and every declared seed, including failed selections. Preserve the method's hard single-core rule, the density-only reliability switch, smoothing and feature settings, and test initial states.
 
@@ -84,4 +86,6 @@ For adapted starts and fresh twenty seeds, D-SIDE mean MSE is 0.0069352917766 ve
 
 ## Release validation scope
 
-Packaging validation independently installed the locked environment, ran the complete fixed illustration, and compared every prediction with the archived reference. The complete multi-seed benchmark commands are provided for replay; the full multi-seed study was not rerun as part of packaging. A replay of an existing seed is not a new confirmation experiment.
+Packaging validation independently installed the locked environment, ran the complete fixed illustration, and compared every prediction with the archived reference. The first local replay had zero observed prediction difference in that environment; this is a historical local result, not a cross-platform guarantee. A subsequent controlled CPU-kernel replay quantified small refit differences while preserving the illustrated source group and negative-transfer labels; see [the portability record](numerical_portability.md).
+
+The complete multi-seed benchmark commands are provided for replay; the full multi-seed study was not rerun as part of packaging. A replay of an existing seed is not a new confirmation experiment.

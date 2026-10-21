@@ -4,6 +4,14 @@ import numpy as np
 import pandas as pd
 from .io import read
 
+# Absolute tolerances for the fixed, dimensionless illustration's full refit.
+# CPU-dispatched BLAS kernels can perturb the nonconvex fit. The controlled
+# measurements and the separate, stricter checkpoint check are documented in
+# docs/numerical_portability.md. These are validation rules, not fit settings.
+REFIT_PREDICTION_ATOL = 1e-6
+REFIT_TRIAL_MSE_ATOL = 1e-7
+REFIT_MEAN_MSE_ATOL = 1e-8
+
 
 def audit_results(root):
     root = Path(root)

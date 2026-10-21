@@ -4,7 +4,8 @@ from pathlib import Path
 import numpy as np
 import pytest
 from dside import DSIDE, Trajectory
-from dside.validation import audit_results
+from dside.validation import audit_results, REFIT_PREDICTION_ATOL, REFIT_MEAN_MSE_ATOL
+from dside._backend.serialization import load_model
 from dside.io import read, sha
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -39,15 +40,30 @@ def test_default_is_density_only_and_matches_frozen_selection(fitted):
         assert fitted.selection_['peak'][key] == pytest.approx(ref['peak'][key], abs=2e-7)
 
 
-def test_frozen_unseen_trajectory_predictions(fitted):
+def test_refitted_predictions_against_archived_reference(fitted):
     tests = read(FIXTURE/'test_design.json')
     errors = []
     with np.load(FIXTURE/'predictions.npz', allow_pickle=False) as reference:
         for tr in tests:
             prediction = fitted.predict(tr['group'], tr['t'], tr['initial'])
-            np.testing.assert_allclose(prediction, reference['density_only__'+tr['name']], atol=2e-8, rtol=2e-8)
+            np.testing.assert_allclose(prediction, reference['density_only__'+tr['name']], atol=REFIT_PREDICTION_ATOL, rtol=0)
             errors.append(np.mean((prediction-reference['truth__'+tr['name']])**2))
-    assert np.mean(errors) == pytest.approx(0.008423258902134238, abs=2e-9)
+    assert np.mean(errors) == pytest.approx(0.008423258902134238, abs=REFIT_MEAN_MSE_ATOL, rel=0)
+
+
+def test_fixed_checkpoint_predictions_against_archived_reference():
+    """Isolate free-simulation arithmetic from floating-point refit variation."""
+    checkpoints = FIXTURE/'frozen_fit'
+    manifest = read(checkpoints/'manifest.json')
+    for relative_path, expected_hash in manifest['sha256'].items():
+        assert sha(checkpoints/relative_path) == expected_hash
+    models = {key: load_model(checkpoints/key) for key in ['shared', 'source_6', 'source_7']}
+    with np.load(FIXTURE/'predictions.npz', allow_pickle=False) as reference:
+        for tr in read(FIXTURE/'test_design.json'):
+            group = tr['group']
+            key, local = ('shared', group) if group < 6 else ('source_%d' % group, 0)
+            prediction = models[key].predict(local, tr['t'], tr['initial'])
+            np.testing.assert_allclose(prediction, reference['density_only__'+tr['name']], atol=2e-8, rtol=0)
 
 
 def test_checkpoint_roundtrip_shared_and_independent_sources(fitted, tmp_path):

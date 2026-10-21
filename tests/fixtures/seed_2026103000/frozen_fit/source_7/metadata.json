@@ -1,0 +1,9 @@
+{
+  "type": "green",
+  "order": 2,
+  "groups": 1,
+  "feature_center": -0.32983371512610327,
+  "feature_scale": 0.3923276091359708,
+  "rank": 14,
+  "scope": "prediction checkpoint; fit diagnostics stored separately"
+}
