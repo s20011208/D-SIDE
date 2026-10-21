@@ -1,0 +1,126 @@
+{
+  "schema_version": 1,
+  "name": "calibrated_initial_conditions",
+  "algorithm": {
+    "name": "D-SIDE",
+    "variant": "density_only",
+    "saturation_count": 21.0,
+    "weight_density": true,
+    "weight_edges": false,
+    "minimum_core_size": 3
+  },
+  "simulation": {
+    "groups": 8,
+    "train_trials": 1,
+    "observations": 45,
+    "duration": 3.0,
+    "noise_sd": 0.035,
+    "grid": 61,
+    "forecast_horizon": 0.8,
+    "test_trials": 10,
+    "good_damping": [
+      0.3875,
+      0.3925,
+      0.3975,
+      0.4025,
+      0.4075,
+      0.405
+    ],
+    "bad_damping": [
+      1.2,
+      1.75
+    ],
+    "good_rhs": "-x + 0.45*sin(1.7*x) - 0.1*x^3/(1+x^2), identical for groups 0..5",
+    "bad_rhs": [
+      "-1.9*x - 0.9*sin(1.7*x) - 0.1*x^3/(1+x^2)",
+      "-0.65*x - 0.65*sin(1.7*x) - 0.1*x^3/(1+x^2)"
+    ],
+    "initial_design": "calibrated_state_range",
+    "common_initial_position": -1.5,
+    "launch_speeds": [
+      0.35,
+      0.55,
+      0.75,
+      0.95,
+      1.15,
+      1.35,
+      1.55,
+      1.75
+    ],
+    "fit": {
+      "rank": 16,
+      "lambda0": 0.0002,
+      "omega_shrinkage": 0.0005,
+      "starts": 2,
+      "maxiter": 100,
+      "operator_bounds": [
+        [
+          0.02,
+          2.5
+        ]
+      ]
+    },
+    "target_maxima": [
+      1.0,
+      1.1714285714285715,
+      1.342857142857143,
+      1.5142857142857142,
+      1.685714285714286,
+      1.8571428571428572,
+      2.0285714285714285,
+      2.2
+    ]
+  },
+  "cohorts": [
+    {
+      "name": "retrospective",
+      "status": "previously seen historical seeds",
+      "seeds": [
+        2026103000,
+        2026103001,
+        2026103002,
+        2026103003,
+        2026103004,
+        2026103005,
+        2026103006,
+        2026103007,
+        2026103008,
+        2026103009
+      ]
+    },
+    {
+      "name": "fresh",
+      "status": "new seeds evaluated after the original protocol was frozen",
+      "seeds": [
+        2026105300,
+        2026105301,
+        2026105302,
+        2026105303,
+        2026105304,
+        2026105305,
+        2026105306,
+        2026105307,
+        2026105308,
+        2026105309,
+        2026105310,
+        2026105311,
+        2026105312,
+        2026105313,
+        2026105314,
+        2026105315,
+        2026105316,
+        2026105317,
+        2026105318,
+        2026105319
+      ]
+    }
+  ],
+  "methods": [
+    "independent",
+    "old",
+    "density_only",
+    "all_pool",
+    "oracle"
+  ],
+  "design_note": "The generating ODE calibrates positive initial velocities to randomized maximum-position targets; this is a controlled simulation intervention, not a selection step."
+}

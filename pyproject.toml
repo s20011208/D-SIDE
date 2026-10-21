@@ -1,0 +1,31 @@
+[build-system]
+requires = ["setuptools>=61,<76"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "d-side"
+version = "0.1.0"
+description = "Distributional Selective Integration for Dynamics Estimation"
+readme = "README.md"
+requires-python = ">=3.8,<3.12"
+dependencies = ["numpy==1.24.4", "scipy==1.10.1", "pandas==2.0.3", "matplotlib==3.7.5"]
+
+[project.optional-dependencies]
+dev = ["pytest==8.3.5"]
+
+[project.urls]
+Repository = "https://github.com/s20011208/D-SIDE"
+Issues = "https://github.com/s20011208/D-SIDE/issues"
+
+[project.scripts]
+dside = "dside.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+dside = ["configs/*.json"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]

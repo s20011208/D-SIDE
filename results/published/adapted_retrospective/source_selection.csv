@@ -1,0 +1,21 @@
+seed,stage,method,core,exact,good_selected,bad_selected
+2026103000,retrospective,old,"[0, 1, 2, 3, 4, 5]",True,6,0
+2026103000,retrospective,density_only,"[0, 1, 2, 3, 4, 5]",True,6,0
+2026103001,retrospective,old,"[0, 1, 2, 3, 4, 5]",True,6,0
+2026103001,retrospective,density_only,"[0, 1, 2, 3, 4, 5]",True,6,0
+2026103002,retrospective,old,"[0, 1, 2, 3, 4, 7]",False,5,1
+2026103002,retrospective,density_only,"[0, 1, 2, 3, 4, 7]",False,5,1
+2026103003,retrospective,old,"[0, 1, 2, 3, 4]",False,5,0
+2026103003,retrospective,density_only,"[1, 2, 6, 7]",False,2,2
+2026103004,retrospective,old,"[0, 1, 2, 3, 4, 5]",True,6,0
+2026103004,retrospective,density_only,"[0, 1, 2, 3, 4, 5, 6]",False,6,1
+2026103005,retrospective,old,"[0, 1, 2, 4, 5, 6]",False,5,1
+2026103005,retrospective,density_only,"[0, 1, 2, 4, 5, 6]",False,5,1
+2026103006,retrospective,old,"[0, 1, 2, 3, 4, 5]",True,6,0
+2026103006,retrospective,density_only,"[0, 1, 2, 3, 4, 5]",True,6,0
+2026103007,retrospective,old,"[0, 1, 2, 3, 4]",False,5,0
+2026103007,retrospective,density_only,"[0, 1, 3, 4, 5, 6]",False,5,1
+2026103008,retrospective,old,"[0, 1, 2, 3, 4]",False,5,0
+2026103008,retrospective,density_only,"[0, 1, 2, 3, 4]",False,5,0
+2026103009,retrospective,old,"[0, 1, 2, 3, 4, 5]",True,6,0
+2026103009,retrospective,density_only,"[0, 1, 2, 3, 4, 5]",True,6,0

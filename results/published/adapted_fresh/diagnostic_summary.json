@@ -1,0 +1,40 @@
+{
+  "summary": [
+    {
+      "stage": "fresh",
+      "mode": "noise_removed",
+      "seeds": 20,
+      "exact": 19,
+      "good_selected": 120,
+      "bad_selected": 1,
+      "related_coordinate_mse": 0.023092463142713515,
+      "bad_coordinate_mse": 0.13860128396153354,
+      "related_position_mse": 9.924914126665416e-06,
+      "related_initial_speed_rmse": 0.09643441644424276
+    },
+    {
+      "stage": "fresh",
+      "mode": "observed",
+      "seeds": 20,
+      "exact": 6,
+      "good_selected": 105,
+      "bad_selected": 14,
+      "related_coordinate_mse": 0.0743176597932343,
+      "bad_coordinate_mse": 0.19701093726606658,
+      "related_position_mse": 0.00016868239046003442,
+      "related_initial_speed_rmse": 0.21552638161457147
+    }
+  ],
+  "geometry": [
+    {
+      "stage": "fresh",
+      "pairs": 560,
+      "minimum_count": 10,
+      "median_count": 73.0,
+      "q10_count": 21.0,
+      "less_than_10": 0,
+      "min_balanced_count": 5.27362445790021
+    }
+  ],
+  "limitation": "Post-hoc diagnostic; noise removal also sets declared sigma to zero, changing precision filtering and weights. Noiseless polynomial and regularized-inverse errors remain. No dynamics are refit or selected based on these results."
+}

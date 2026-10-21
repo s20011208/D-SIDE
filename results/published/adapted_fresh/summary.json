@@ -1,0 +1,144 @@
+{
+  "methods": {
+    "independent": {
+      "stage": "fresh",
+      "method": "independent",
+      "seeds": 20,
+      "all_mse": 0.00658150505555471,
+      "related_mse": 0.004105222104049581,
+      "bad_mse": 0.014010353910070095,
+      "group6_mse": 0.02220611549749597,
+      "group7_mse": 0.005814592322644225,
+      "exact": null,
+      "good_selected": null,
+      "bad_selected": null,
+      "nt": 0,
+      "denominator": 160,
+      "positive_excess": 0.0,
+      "max_relative_harm": 0.0,
+      "rhs_mse": 0.3357415006112189,
+      "related_rhs_mse": 0.13890414244553567,
+      "damping_mse": 0.03104996993607153,
+      "related_damping_mse": 0.039823443859162894
+    },
+    "old": {
+      "stage": "fresh",
+      "method": "old",
+      "seeds": 20,
+      "all_mse": 0.006916286841971611,
+      "related_mse": 0.003832642765297669,
+      "bad_mse": 0.016167219071993436,
+      "group6_mse": 0.02645290814550889,
+      "group7_mse": 0.005881529998477978,
+      "exact": 8,
+      "good_selected": 106,
+      "bad_selected": 10,
+      "nt": 62,
+      "denominator": 160,
+      "positive_excess": 0.0012137817346024777,
+      "max_relative_harm": 3.8048502734325798,
+      "rhs_mse": 0.354338811515707,
+      "related_rhs_mse": 0.11446908899828048,
+      "damping_mse": 0.0564919485346647,
+      "related_damping_mse": 0.05425475185563955
+    },
+    "density_only": {
+      "stage": "fresh",
+      "method": "density_only",
+      "seeds": 20,
+      "all_mse": 0.006935291776597243,
+      "related_mse": 0.0037642239193799156,
+      "bad_mse": 0.016448495348249225,
+      "group6_mse": 0.027177217663566556,
+      "group7_mse": 0.005719773032931895,
+      "exact": 6,
+      "good_selected": 105,
+      "bad_selected": 14,
+      "nt": 59,
+      "denominator": 160,
+      "positive_excess": 0.0013502296546439672,
+      "max_relative_harm": 5.016309339509436,
+      "rhs_mse": 0.34830863862496086,
+      "related_rhs_mse": 0.1069603505644599,
+      "damping_mse": 0.05383997967520123,
+      "related_damping_mse": 0.05162089965501692
+    },
+    "all_pool": {
+      "stage": "fresh",
+      "method": "all_pool",
+      "seeds": 20,
+      "all_mse": 0.009820734498067736,
+      "related_mse": 0.006388168728911388,
+      "bad_mse": 0.020118431805536775,
+      "group6_mse": 0.03429226630787406,
+      "group7_mse": 0.0059445973031995,
+      "exact": null,
+      "good_selected": null,
+      "bad_selected": null,
+      "nt": 129,
+      "denominator": 160,
+      "positive_excess": 0.003788365310042704,
+      "max_relative_harm": 24.134047616248516,
+      "rhs_mse": 0.48700848582793765,
+      "related_rhs_mse": 0.21575438747505052,
+      "damping_mse": 0.14275119465417124,
+      "related_damping_mse": 0.11742836784988017
+    },
+    "oracle": {
+      "stage": "fresh",
+      "method": "oracle",
+      "seeds": 20,
+      "all_mse": 0.005747847045123147,
+      "related_mse": 0.0029936780901408315,
+      "bad_mse": 0.014010353910070095,
+      "group6_mse": 0.02220611549749597,
+      "group7_mse": 0.005814592322644225,
+      "exact": null,
+      "good_selected": null,
+      "bad_selected": null,
+      "nt": 45,
+      "denominator": 160,
+      "positive_excess": 0.00040110267705874004,
+      "max_relative_harm": 3.0703838108944668,
+      "rhs_mse": 0.2993774806437053,
+      "related_rhs_mse": 0.09041878248885099,
+      "damping_mse": 0.02827453892045706,
+      "related_damping_mse": 0.03612286917167694
+    }
+  },
+  "paired_density_minus_reference": {
+    "old": {
+      "mean_difference": 1.9004934625632773e-05,
+      "descriptive_seed_t_95ci": [
+        -0.0006598549894629575,
+        0.000697864858714223
+      ],
+      "relative_mean_change": 0.002747852288355057,
+      "better": 5,
+      "worse": 1,
+      "same": 14
+    },
+    "independent": {
+      "mean_difference": 0.0003537867210425341,
+      "descriptive_seed_t_95ci": [
+        -0.0007737878324118822,
+        0.0014813612744969504
+      ],
+      "relative_mean_change": 0.053754683473796305,
+      "better": 13,
+      "worse": 7,
+      "same": 0
+    },
+    "oracle": {
+      "mean_difference": 0.0011874447314740957,
+      "descriptive_seed_t_95ci": [
+        9.668124819968231e-05,
+        0.0022782082147485092
+      ],
+      "relative_mean_change": 0.20658947987866205,
+      "better": 5,
+      "worse": 9,
+      "same": 6
+    }
+  }
+}

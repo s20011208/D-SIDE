@@ -1,0 +1,35 @@
+{
+  "validated_at_utc": "2026-10-21T16:08:43.680311+00:00",
+  "python": "3.8.10",
+  "dependencies": {
+    "numpy": "1.24.4",
+    "scipy": "1.10.1",
+    "pandas": "2.0.3",
+    "matplotlib": "3.7.5",
+    "pytest": "8.3.5",
+    "pip": "24.3.1",
+    "setuptools": "75.3.2",
+    "wheel": "0.45.1"
+  },
+  "tests_passed": 38,
+  "frozen_replay": {
+    "arrays_verified": 480,
+    "trial_scores_verified": 400,
+    "maximum_absolute_prediction_difference": 0.0
+  },
+  "published_table_source_method_rows_verified": 1600,
+  "documentation_links_verified": 39,
+  "original_apsd_package_installed": false,
+  "readme_browser_preview": {
+    "broken_images": [],
+    "page_errors": [],
+    "viewport": {
+      "width": 1280,
+      "height": 1100
+    },
+    "preview": "local GitHub-style rendering",
+    "document_height": 4980
+  },
+  "scope": "Independent locked installation, focused tests, complete fixed historical example, frozen prediction replay, table audits, links, SVG, and real Chromium README preview. Full multi-seed benchmarks were not rerun during packaging.",
+  "ci_status": "GitHub Actions workflow supplied; remote result is not asserted by this local receipt."
+}

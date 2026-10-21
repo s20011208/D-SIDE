@@ -1,0 +1,7 @@
+{
+  "source_experiment": "separation_consensus_20261021",
+  "original_summary_sha256": "ad97828ec5406c474ebc77b8ce35bd877431291b142d2ae86de23fce51903483",
+  "source_labels": "0..5 related; 6 and 7 heterogeneous; labels are used only for simulation generation and post-hoc scoring",
+  "fixture_source": "fixed_initial_control/seed_2026103000",
+  "note": "No primary summary results were recomputed during packaging. Independent release checks replay the fixed historical example."
+}

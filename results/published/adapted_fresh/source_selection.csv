@@ -1,0 +1,41 @@
+seed,stage,method,core,exact,good_selected,bad_selected
+2026105300,fresh,old,"[0, 1, 2, 3, 4, 5]",True,6,0
+2026105300,fresh,density_only,"[0, 1, 2, 3, 4, 5]",True,6,0
+2026105301,fresh,old,"[0, 1, 2, 3, 4, 5]",True,6,0
+2026105301,fresh,density_only,"[0, 1, 2, 3, 4, 5]",True,6,0
+2026105302,fresh,old,"[0, 1, 2, 3, 4, 5]",True,6,0
+2026105302,fresh,density_only,"[0, 1, 2, 3, 4, 5]",True,6,0
+2026105303,fresh,old,"[0, 1, 2, 3, 4, 5]",True,6,0
+2026105303,fresh,density_only,"[0, 1, 2, 3, 4, 5, 6]",False,6,1
+2026105304,fresh,old,"[0, 1, 2, 3, 4, 5]",True,6,0
+2026105304,fresh,density_only,"[0, 1, 2, 3, 4, 5]",True,6,0
+2026105305,fresh,old,"[0, 1, 2, 3, 4, 5]",True,6,0
+2026105305,fresh,density_only,"[0, 1, 2, 3, 4, 5]",True,6,0
+2026105306,fresh,old,"[0, 1, 3, 4, 5]",False,5,0
+2026105306,fresh,density_only,"[0, 1, 3, 4, 5]",False,5,0
+2026105307,fresh,old,"[0, 1, 2, 3, 4, 5]",True,6,0
+2026105307,fresh,density_only,"[0, 1, 2, 3, 4, 5]",True,6,0
+2026105308,fresh,old,"[0, 1, 2, 3, 5]",False,5,0
+2026105308,fresh,density_only,"[0, 1, 2, 3, 5, 7]",False,5,1
+2026105309,fresh,old,"[0, 1, 3, 4, 5, 6]",False,5,1
+2026105309,fresh,density_only,"[0, 1, 3, 4, 5, 6]",False,5,1
+2026105310,fresh,old,"[0, 1, 2, 3, 5]",False,5,0
+2026105310,fresh,density_only,"[1, 2, 3, 4, 5]",False,5,0
+2026105311,fresh,old,"[1, 3, 5, 7]",False,3,1
+2026105311,fresh,density_only,"[1, 3, 5, 7]",False,3,1
+2026105312,fresh,old,"[0, 2, 3, 4, 5, 6]",False,5,1
+2026105312,fresh,density_only,"[0, 2, 3, 4, 5, 6]",False,5,1
+2026105313,fresh,old,"[0, 1, 2, 3, 4, 5]",True,6,0
+2026105313,fresh,density_only,"[0, 1, 2, 3, 4, 5, 7]",False,6,1
+2026105314,fresh,old,"[0, 1, 2, 3, 5, 7]",False,5,1
+2026105314,fresh,density_only,"[0, 1, 2, 3, 5, 7]",False,5,1
+2026105315,fresh,old,"[0, 1, 3, 4, 5, 6, 7]",False,5,2
+2026105315,fresh,density_only,"[0, 1, 3, 4, 5, 6, 7]",False,5,2
+2026105316,fresh,old,"[0, 2, 3, 4, 5, 6, 7]",False,5,2
+2026105316,fresh,density_only,"[0, 2, 3, 4, 5, 6, 7]",False,5,2
+2026105317,fresh,old,"[1, 2, 3, 4, 5, 6]",False,5,1
+2026105317,fresh,density_only,"[1, 2, 3, 4, 5, 6]",False,5,1
+2026105318,fresh,old,"[0, 2, 3, 4, 5, 6]",False,5,1
+2026105318,fresh,density_only,"[2, 3, 4, 5, 7]",False,4,1
+2026105319,fresh,old,"[0, 1, 2, 3, 4]",False,5,0
+2026105319,fresh,density_only,"[0, 1, 2, 3, 4, 7]",False,5,1

@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="250" viewBox="0 0 1200 250" role="img" aria-labelledby="title desc">
+<title id="title">D-SIDE: Distributional Selective Integration for Dynamics Estimation</title>
+<desc id="desc">Research software for selective information sharing across systems with heterogeneous governing dynamics. Decorative trajectories are schematic.</desc>
+<defs><linearGradient id="back" x1="0" x2="1"><stop stop-color="#102A43"/><stop offset="1" stop-color="#16475A"/></linearGradient><clipPath id="clip"><rect width="1200" height="250" rx="18"/></clipPath></defs>
+<rect width="1200" height="250" rx="18" fill="url(#back)"/>
+<g clip-path="url(#clip)">
+<circle cx="1150" cy="60" r="210" fill="#FFFFFF" opacity=".025"/>
+<circle cx="1150" cy="60" r="150" fill="none" stroke="#FFFFFF" opacity=".04"/>
+<path d="M735 172 C785 57,825 42,870 115 S952 212,1010 88 S1128 78,1230 155" fill="none" stroke="#74C9CC" stroke-width="3" opacity=".72"/>
+<path d="M735 185 C783 82,829 72,874 132 S952 208,1012 113 S1127 94,1230 159" fill="none" stroke="#74C9CC" stroke-width="3" opacity=".46"/>
+<path d="M735 199 C786 111,829 101,878 149 S956 208,1013 139 S1128 110,1230 165" fill="none" stroke="#74C9CC" stroke-width="3" opacity=".27"/>
+<path d="M735 166 C793 174,806 91,864 77 S928 167,982 181 S1097 54,1230 83" fill="none" stroke="#DDA750" stroke-width="2.5" opacity=".75"/>
+</g>
+<text x="38" y="38" fill="#9AC8D1" font-size="12" font-weight="600" font-family="Arial, Helvetica, sans-serif" letter-spacing="2">RESEARCH SOFTWARE</text>
+<text x="36" y="102" fill="#FFFFFF" font-size="58" font-weight="700" font-family="Arial, Helvetica, sans-serif" letter-spacing="1">D-SIDE</text>
+<text x="39" y="148" fill="#F3F8FB" font-size="23" font-weight="500" font-family="Arial, Helvetica, sans-serif" >Distributional Selective Integration</text>
+<text x="39" y="180" fill="#F3F8FB" font-size="23" font-weight="500" font-family="Arial, Helvetica, sans-serif" >for Dynamics Estimation</text>
+<text x="39" y="223" fill="#AFCAD6" font-size="15" font-weight="400" font-family="Arial, Helvetica, sans-serif" >Scalar evidence. Selective borrowing. Nonparametric dynamics.</text>
+<text x="1155" y="228" fill="#9AC8D1" font-size="11" font-weight="400" font-family="Arial, Helvetica, sans-serif" text-anchor="end">Schematic trajectories</text>
+</svg>

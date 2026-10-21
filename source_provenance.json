@@ -1,0 +1,73 @@
+{
+  "source_project": "APSD research workspace",
+  "snapshot_date": "2026-10-21",
+  "source_experiment": "separation_consensus_20261021",
+  "files": [
+    {
+      "original_relative_path": "src/apsd/core.py",
+      "release_path": "src/dside/_backend/core.py",
+      "sha256": "0a4c6c40df86390ddc210a105324c7c22f3bdb1f1968862070f3ccf50e38cd76",
+      "transformation": "none; byte-identical frozen numerical implementation"
+    },
+    {
+      "original_relative_path": "src/apsd/baselines.py",
+      "release_path": "src/dside/_backend/baselines.py",
+      "sha256": "49a0b9d5bac3ef9f67f960ec12fd7b6ac36378eab4d791eea747de5fdfacd0db",
+      "transformation": "none; byte-identical frozen numerical implementation"
+    },
+    {
+      "original_relative_path": "src/apsd/serialization.py",
+      "release_path": "src/dside/_backend/serialization.py",
+      "sha256": "0b69b9287f476b500d8000095e09a37425890b156bc2cc69e456d30354d70358",
+      "transformation": "none; byte-identical frozen numerical implementation"
+    },
+    {
+      "original_relative_path": "src/apsd/global_consensus.py",
+      "release_path": "src/dside/_backend/global_consensus.py",
+      "sha256": "dda794942e2a11250ad4674a3535a0ce729e6866135f04bb44e47afd13f39dfc",
+      "transformation": "none; byte-identical frozen numerical implementation"
+    },
+    {
+      "original_relative_path": "src/apsd/consensus_reliability.py",
+      "release_path": "src/dside/_backend/consensus_reliability.py",
+      "sha256": "3515eda43b744f3e2e9b9c9f392e8c40dec70ac63cdc067e305e91b07a22f353",
+      "transformation": "none; byte-identical frozen numerical implementation"
+    },
+    {
+      "original_relative_path": "src/apsd/scalar_sources.py",
+      "release_path": "src/dside/_backend/scalar_sources.py",
+      "sha256": "16c3b8f826f472f439a13f388b951255f737114492aac086f9521d0d7e63d045",
+      "transformation": "none; byte-identical frozen numerical implementation"
+    },
+    {
+      "original_relative_path": "src/apsd/scalar_precision.py",
+      "release_path": "src/dside/_backend/scalar_precision.py",
+      "sha256": "b446b8a1b251ecf500f546020e725e64377cff35228751e2f74fdc52d4df9840",
+      "transformation": "none; byte-identical frozen numerical implementation"
+    },
+    {
+      "original_relative_path": "src/apsd/scalar_evidence.py",
+      "release_path": "src/dside/_backend/scalar_evidence.py",
+      "sha256": "698220bda04a13f1eca3f1dea7879c4e6d28b6783a34f666959c2719e69d15b8",
+      "transformation": "none; byte-identical frozen numerical implementation"
+    },
+    {
+      "original_relative_path": "src/apsd/state_matching.py",
+      "release_path": "src/dside/_backend/state_matching.py",
+      "sha256": "6dd755bf9c141d736b9ed048957bd0691c8247570e28fdce6b0b24f1d63b1381",
+      "transformation": "none; byte-identical frozen numerical implementation"
+    },
+    {
+      "original_relative_path": "src/apsd/consensus_design.py",
+      "release_path": "src/dside/_backend/consensus_design.py",
+      "sha256": "2a030ce49cd95d66f91453f363ffa6e8e99f3d320c658617870e78aa3a49570b",
+      "transformation": "none; byte-identical frozen numerical implementation"
+    },
+    {
+      "original_relative_path": "src/apsd/consensus_separation.py",
+      "release_path": "src/dside/_backend/consensus_separation.py",
+      "sha256": "1c3e01291ae5bec91b0f248e4fc1afba21b38fda720e8be9e8a30b0c72891445",
+      "transformation": "none; byte-identical frozen numerical implementation"
+    }
+  ]
+}

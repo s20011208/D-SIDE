@@ -1,0 +1,80 @@
+{
+  "schema_version": 1,
+  "name": "illustration_seed_2026103000",
+  "algorithm": {
+    "name": "D-SIDE",
+    "variant": "density_only",
+    "saturation_count": 21.0,
+    "weight_density": true,
+    "weight_edges": false,
+    "minimum_core_size": 3
+  },
+  "simulation": {
+    "groups": 8,
+    "train_trials": 1,
+    "observations": 45,
+    "duration": 3.0,
+    "noise_sd": 0.035,
+    "grid": 61,
+    "forecast_horizon": 0.8,
+    "test_trials": 10,
+    "good_damping": [
+      0.3875,
+      0.3925,
+      0.3975,
+      0.4025,
+      0.4075,
+      0.405
+    ],
+    "bad_damping": [
+      1.2,
+      1.75
+    ],
+    "good_rhs": "-x + 0.45*sin(1.7*x) - 0.1*x^3/(1+x^2), identical for groups 0..5",
+    "bad_rhs": [
+      "-1.9*x - 0.9*sin(1.7*x) - 0.1*x^3/(1+x^2)",
+      "-0.65*x - 0.65*sin(1.7*x) - 0.1*x^3/(1+x^2)"
+    ],
+    "initial_design": "common_position_distinct_speeds",
+    "common_initial_position": -1.15,
+    "launch_speeds": [
+      0.35,
+      0.55,
+      0.75,
+      0.95,
+      1.15,
+      1.35,
+      1.55,
+      1.75
+    ],
+    "fit": {
+      "rank": 16,
+      "lambda0": 0.0002,
+      "omega_shrinkage": 0.0005,
+      "starts": 2,
+      "maxiter": 100,
+      "operator_bounds": [
+        [
+          0.02,
+          2.5
+        ]
+      ]
+    }
+  },
+  "cohorts": [
+    {
+      "name": "illustration",
+      "status": "prespecified historical illustration; not independent confirmation",
+      "seeds": [
+        2026103000
+      ]
+    }
+  ],
+  "methods": [
+    "independent",
+    "old",
+    "density_only",
+    "all_pool",
+    "oracle"
+  ]
+}
