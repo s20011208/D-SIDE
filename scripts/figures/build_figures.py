@@ -61,6 +61,51 @@ def svg_text(x, y, text, size=15, color=INK, weight='400', **attrs):
     return f'<text x="{x}" y="{y}" fill="{color}" font-size="{size}" font-weight="{weight}" font-family="Arial, Helvetica, sans-serif" {extra}>{escape(text)}</text>'
 
 
+def cubic_point(control_points, parameter):
+    """Point on the same cubic Bezier curve drawn in the Pair schematic."""
+    u = 1.-parameter
+    coefficients = (u**3, 3*u*u*parameter, 3*u*parameter**2, parameter**3)
+    return tuple(sum(w*p[k] for w,p in zip(coefficients, control_points)) for k in (0,1))
+
+
+def equal_state_point(control_points, state):
+    """Locate a shared vertical coordinate on a schematic cubic curve.
+
+    Each displayed curve crosses this state once. Solve its actual Bezier
+    ordinate rather than positioning the markers by eye.
+    """
+    lower, upper = 0., 1.
+    lower_value = cubic_point(control_points, lower)[1]-state
+    upper_value = cubic_point(control_points, upper)[1]-state
+    if lower_value*upper_value > 0:
+        raise ValueError('Schematic matching state is not bracketed by the curve')
+    for _ in range(64):
+        middle = (lower+upper)/2
+        middle_value = cubic_point(control_points, middle)[1]-state
+        if lower_value*middle_value > 0:
+            lower, lower_value = middle, middle_value
+        else:
+            upper = middle
+    parameter = (lower+upper)/2
+    return cubic_point(control_points, parameter)
+
+
+def operator_equation_svg(x, y):
+    """Readable Kth-order operator notation, with explicit super/subscripts."""
+    font = 'Cambria Math, STIX Two Math, DejaVu Serif, serif'
+    pieces = [f'<g aria-label="D to the K with source-specific omega, applied to X, equals f sub g of X">']
+    for dx,dy,text,size,italic in [(0,0,'D',23,True),(18,-14,'K',13,True),
+                                  (18,9,'ω',13,True),(29,13,'g',9,True),
+                                  (45,0,'X',23,True),(68,0,'=',21,False),
+                                  (93,0,'f',23,True),(103,7,'g',12,True),
+                                  (114,0,'(X)',23,True)]:
+        pieces.append(f'<text x="{x+dx}" y="{y+dy}" fill="{NAVY}" '
+                      f'font-size="{size}" font-family="{font}" '
+                      f'font-style="{"italic" if italic else "normal"}">{escape(text)}</text>')
+    pieces.append('</g>')
+    return ''.join(pieces)
+
+
 def hero(output):
     svg=svg_begin(1200,250,'D-SIDE: Distributional Selective Integration for Dynamics Estimation',
         'Research software for selective information sharing across systems with heterogeneous governing dynamics. Decorative trajectories are schematic.')
@@ -90,7 +135,7 @@ def workflow(output):
             '<rect width="1280" height="318" rx="14" fill="#F6F9FC"/>']
     cards=[('01','Observe','Noisy trajectories','Limited data per source'),
            ('02','Pair','Labeled scalar statistics','Match equal states'),
-           ('03','Summarize','Distributional evidence','Weight the global density'),
+           ('03','Distribution','Distributional evidence','Weight the global density'),
            ('04','Group','Source clustering','Select one shared mechanism'),
            ('05','Estimate','Nonparametric dynamics','Keep source-specific operators')]
     for i,(num,verb,line1,line2) in enumerate(cards):
@@ -105,12 +150,21 @@ def workflow(output):
             for xx,yy in [(39,134),(75,118),(112,141),(151,126),(191,129)]:
                 svg.append(f'<circle cx="{x+xx}" cy="{yy}" r="3" fill="{TEAL}" opacity=".7"/>')
         elif i==1:
-            svg += [f'<path d="M{x+24} 162 C{x+65} 110,{x+102} 102,{x+166} 120" fill="none" stroke="{NAVY}" stroke-width="2.4"/>',
-                    f'<path d="M{x+30} 179 C{x+96} 174,{x+126} 97,{x+209} 100" fill="none" stroke="{TEAL}" stroke-width="2.4"/>',
-                    f'<path d="M{x+68} 124 H{x+145}" stroke="{AMBER}" stroke-dasharray="4 4"/>',
-                    f'<circle cx="{x+68}" cy="124" r="4.3" fill="{NAVY}"/>',
-                    f'<circle cx="{x+145}" cy="124" r="4.3" fill="{TEAL}"/>',
-                    svg_text(x+174,148,'T',20,NAVY,'600')]
+            curves = [([(24.,162.),(65.,110.),(102.,102.),(166.,120.)],NAVY,'navy'),
+                      ([(30.,179.),(96.,174.),(126.,97.),(209.,100.)],TEAL,'teal')]
+            shared_state = 124.
+            endpoints = []
+            for control,color,name in curves:
+                shifted = [(x+xx,yy) for xx,yy in control]
+                p0,p1,p2,p3 = shifted
+                path = f'M{p0[0]} {p0[1]} C{p1[0]} {p1[1]},{p2[0]} {p2[1]},{p3[0]} {p3[1]}'
+                svg.append(f'<path id="pair-{name}-curve" d="{path}" fill="none" stroke="{color}" stroke-width="2.4"/>')
+                endpoints.append((*equal_state_point(shifted,shared_state),color,name))
+            svg.append(f'<path id="equal-state-connector" d="M{endpoints[0][0]:.9f} {shared_state} H{endpoints[1][0]:.9f}" '
+                       f'fill="none" stroke="{AMBER}" stroke-width="1.4" stroke-dasharray="4 4"/>')
+            for xx,yy,color,name in endpoints:
+                svg.append(f'<circle id="pair-{name}-point" cx="{xx:.9f}" cy="{yy:.9f}" r="4.3" fill="{color}"/>')
+            svg.append(svg_text(x+174,148,'T',20,NAVY,'600'))
         elif i==2:
             for j,h in enumerate([10,17,28,47,63,55,32,20,15,12]):
                 svg.append(f'<rect x="{x+21+j*19}" y="{178-h}" width="15" height="{h}" rx="2" fill="{TEAL}" opacity=".38"/>')
@@ -122,8 +176,9 @@ def workflow(output):
             for j,(xx,yy) in enumerate(pts):
                 svg.append(f'<circle cx="{x+xx}" cy="{yy}" r="10" fill="{TEAL if j<4 else AMBER}"/>')
         else:
-            svg += [svg_text(x+25,137,"x'' + a x' = f(x)",22,NAVY,'500'),
-                    f'<path d="M{x+23} 172 C{x+69} 121,{x+137} 202,{x+210} 149" fill="none" stroke="{TEAL}" stroke-width="2.8"/>']
+            svg += [operator_equation_svg(x+36,135),
+                    svg_text(x+116,158,'integer K ≥ 2',11,GRAY,text_anchor='middle'),
+                    f'<path d="M{x+23} 190 C{x+69} 164,{x+137} 212,{x+210} 177" fill="none" stroke="{TEAL}" stroke-width="2.8"/>']
         svg += [svg_text(x+16,216,line1,15,NAVY,'600'),svg_text(x+16,242,line2,12,GRAY)]
         if i<4:svg.append(f'<path d="M{x+239} 143 H{x+250}" fill="none" stroke="#8A9AA9" stroke-width="1.6" marker-end="url(#arrow)"/>')
     svg += [svg_text(25,294,'Algorithm schematic  |  Sources outside the selected group retain independent fits.',13,GRAY),'</svg>']
@@ -137,7 +192,11 @@ def source_selection(data, output):
     ax=axes[0]
     for g,color in [(0,NAVY),(5,TEAL)]:
         tr=data['training'][g]
-        ax.plot(tr['smooth_time'],tr['selector_position'],color=color,lw=2.1,label=f'Source {g}')
+        # The stored 301-point curve contains the selector's 61-node grid at
+        # every fifth point. Draw that same polyline, so interpolation-based
+        # equal-state markers lie exactly on the displayed line segments.
+        ax.plot(tr['smooth_time'][::5],tr['selector_position'][::5],
+                color=color,lw=2.1,label=f'Source {g}')
         ax.scatter(tr['time'],tr['observed_position'],s=11,color=color,alpha=.25,edgecolors='none')
     rr=[r for r in data['scalar_rows'] if r['g']==0 and r['h']==5]
     show=np.round(np.linspace(3,len(rr)-4,3)).astype(int)
@@ -145,7 +204,7 @@ def source_selection(data, output):
         r=rr[i];a,b=r['time_p'],r['time_q'];state=r['state']
         ax.plot([a,b],[state,state],color=AMBER,lw=1.6,ls=(0,(3,2)))
         ax.scatter([a,b],[state,state],s=29,c=[NAVY,TEAL],edgecolor='white',lw=.8,zorder=5)
-    ax.set(xlabel='Training time',ylabel='Observed position',xlim=(0,3))
+    ax.set(xlabel='Training time (61-node matching grid)',ylabel='Observed position',xlim=(0,3))
     ax.set_title('01  Equal-state pairing',loc='left',fontweight='bold',pad=18)
     ax.legend(loc='upper left',frameon=False,fontsize=10)
     style_axis(ax)
@@ -180,7 +239,7 @@ def source_selection(data, output):
                 ax.text(j,i,f'{E[i,j]:.2f}',ha='center',va='center',fontsize=7.4,color=INK)
     ax.add_patch(Rectangle((-.5,-.5),6,6,fill=False,ec=TEAL,lw=2.0))
     ax.set(xticks=range(8),yticks=range(8),xlabel='Source',ylabel='Source')
-    ax.set_title('03  Evidence and selection',loc='left',fontweight='bold',pad=18)
+    ax.set_title('03  Source clustering',loc='left',fontweight='bold',pad=18)
     ax.tick_params(length=0,labelcolor=GRAY)
     for s in ax.spines.values():s.set_visible(False)
     cbar=fig.colorbar(im,ax=ax,fraction=.046,pad=.035)
@@ -230,7 +289,7 @@ def prediction(data, output):
     save_figure(fig,output,'prediction')
 
 
-def svg_previews(output):
+def svg_previews(output, names=('hero', 'workflow')):
     """Optional PNG previews via native librsvg; SVG is the primary format.
 
     This uses standard-library ctypes, not an added Python package. On systems
@@ -257,7 +316,7 @@ def svg_previews(output):
     cairo.cairo_destroy.argtypes = [c.c_void_p]
     cairo.cairo_surface_destroy.argtypes = [c.c_void_p]
     obj.g_object_unref.argtypes = [c.c_void_p]
-    for name in ['hero', 'workflow']:
+    for name in names:
         path = output/(name+'.svg')
         node = ElementTree.parse(path).getroot()
         width, height = int(node.get('width')), int(node.get('height'))
@@ -284,14 +343,19 @@ def main():
     p=argparse.ArgumentParser(description=__doc__)
     p.add_argument('--input',type=Path,default=ROOT/'assets/figure_data.json')
     p.add_argument('--output',type=Path,default=ROOT/'assets')
+    p.add_argument('--figures',nargs='+',choices=['hero','workflow','source_selection','prediction'],
+                   default=['hero','workflow','source_selection','prediction'])
     a=p.parse_args();a.output.mkdir(parents=True,exist_ok=True)
     data=json.loads(a.input.read_text())
     plt.rcParams.update({'font.family':'DejaVu Sans','font.size':10.5,'text.color':INK,'axes.labelcolor':INK,
         'axes.titlecolor':NAVY,'axes.titlesize':12.5,'axes.titleweight':'medium',
         'svg.fonttype':'none','svg.hashsalt':'D-SIDE','figure.facecolor':'white','axes.facecolor':'white','savefig.facecolor':'white'})
-    hero(a.output);workflow(a.output);source_selection(data,a.output);prediction(data,a.output)
-    svg_previews(a.output)
-    print('Built hero.svg, workflow.svg, source_selection.svg/png, prediction.svg/png')
+    builders={'hero':lambda:hero(a.output),'workflow':lambda:workflow(a.output),
+              'source_selection':lambda:source_selection(data,a.output),
+              'prediction':lambda:prediction(data,a.output)}
+    for name in a.figures:builders[name]()
+    svg_previews(a.output,[name for name in a.figures if name in ('hero','workflow')])
+    print('Built '+', '.join(a.figures))
 
 
 if __name__=='__main__':main()

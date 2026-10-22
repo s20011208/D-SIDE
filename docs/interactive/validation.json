@@ -1,0 +1,28 @@
+{
+  "source_pair_count": 28,
+  "retained_statistics": 793,
+  "matched_endpoint_maximum_interpolation_residual": 4.440892098500626e-16,
+  "global_weight_sum": 0.9999999999999998,
+  "statistic_ratio_maximum_residual": 0.0,
+  "evidence_reconstruction_maximum_residual": 3.3306690738754696e-16,
+  "all_saved_statistics_and_decisions_unchanged": true,
+  "offline_single_file_bytes": 332709,
+  "plotting_bundle_sha256": "506d164796fcfb28936e696acfdb20a74c1ba483ce3ef40b31e0113a2bb93c2a",
+  "browser_checks": {
+    "source_pairs_exercised": 28,
+    "javascript_errors": [],
+    "horizontal_overflow": {
+      "desktop_1440": false,
+      "mobile_390": false,
+      "mobile_320": false
+    },
+    "controls_verified": [
+      "Source-pair menu (all 28 pairs)",
+      "Statistic slider and keyboard End",
+      "Previous and Next buttons",
+      "Evidence-cell selection",
+      "Curve-point selection",
+      "Distribution selection"
+    ]
+  }
+}

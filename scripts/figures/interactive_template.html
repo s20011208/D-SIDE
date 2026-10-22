@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Explore the frozen D-SIDE example: equal-state pairing, distributional evidence and source clustering.">
+<title>D-SIDE · Interactive algorithm panel</title>
+<style>
+:root{color-scheme:light;--navy:#102a43;--teal:#087f8c;--amber:#bd791d;--ink:#20374d;--muted:#60768b;--line:#dae5ed;--light:#f5f8fb;--background:#fff}
+*{box-sizing:border-box}body{margin:0;background:var(--light);color:var(--ink);font:15px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif}main{max-width:1500px;margin:auto;padding:30px 30px 36px}a{color:var(--teal);text-underline-offset:3px}header{display:flex;justify-content:space-between;align-items:baseline;gap:20px;flex-wrap:wrap}.brand{font-weight:750;font-size:23px;color:var(--navy);text-decoration:none}.brand span{font-weight:450;font-size:14px;color:var(--muted);margin-left:12px}.eyebrow{color:var(--teal);font-size:12px;letter-spacing:1.2px;font-weight:700;text-transform:uppercase;margin:30px 0 7px}h1{font-size:32px;line-height:1.2;color:var(--navy);margin:0 0 12px;letter-spacing:-.6px}.intro{color:var(--muted);max-width:940px;margin:0 0 23px}.controls{display:grid;grid-template-columns:210px 1fr auto;gap:24px;align-items:end;padding:20px 22px;background:white;border:1px solid var(--line);border-radius:12px;margin-bottom:20px}label{display:block;color:var(--navy);font-weight:600;font-size:14px;margin-bottom:8px}select{width:100%;height:41px;border:1px solid #c6d5e0;border-radius:6px;background:white;color:var(--ink);padding:0 10px;font:inherit}input[type=range]{width:100%;accent-color:var(--teal);cursor:pointer;margin:11px 0 5px}.range-label{display:flex;justify-content:space-between;gap:12px}.range-label output{color:var(--muted);font-weight:400;font-variant-numeric:tabular-nums}.buttons{display:flex;gap:8px;padding-bottom:2px}button{font:inherit;cursor:pointer}button.nav{height:39px;min-width:85px;border:1px solid #c6d5e0;border-radius:6px;background:#fff;color:var(--ink)}button:disabled{opacity:.42;cursor:default}button:focus-visible,select:focus-visible,input:focus-visible{outline:3px solid #87c9d2;outline-offset:3px}.panels{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}.panel{min-width:0;background:var(--background);border:1px solid var(--line);border-radius:12px;padding:21px 19px 18px}.panel h2{font-size:18px;line-height:1.3;letter-spacing:-.2px;margin:0 0 7px;color:var(--navy)}.step{font-size:12px;color:var(--teal);font-weight:650;margin-right:7px;vertical-align:2px}.panel-note{color:var(--muted);font-size:13px;min-height:42px;margin:0 0 8px}.plot{display:block;width:100%;overflow:visible}.legend{display:flex;flex-wrap:wrap;gap:4px 14px;font-size:12px;color:var(--muted);margin:7px 0 13px}.legend span{display:inline-flex;align-items:center;gap:5px}.swatch{width:15px;height:3px;display:inline-block;background:var(--navy)}.swatch.teal{background:var(--teal)}.swatch.amber{background:var(--amber)}.swatch.bars{height:9px;background:#b7d9df}.detail{font-size:13px;color:var(--muted);padding-top:12px;border-top:1px solid var(--line);margin-top:9px;min-height:77px;font-variant-numeric:tabular-nums}.detail strong{font-weight:600;color:var(--navy)}.math{font-family:Georgia,"Times New Roman",serif;font-size:17px;white-space:nowrap}.formula{font-variant-numeric:tabular-nums;line-height:1.8;margin-bottom:4px}.hint{font-size:13px;color:var(--muted);margin:18px 0 0}.matrix-wrap{overflow-x:auto;margin-top:10px}.matrix{border-collapse:separate;border-spacing:3px;width:100%;table-layout:fixed;min-width:276px}.matrix th{font-size:12px;font-weight:500;color:var(--muted);text-align:center}.matrix td{padding:0}.matrix button{width:100%;min-height:32px;border:2px solid transparent;border-radius:4px;padding:1px 0;font-size:11px;font-variant-numeric:tabular-nums;color:var(--navy)}.matrix button.selected{border-color:var(--navy);font-weight:700}.matrix button:hover:not(:disabled){box-shadow:inset 0 0 0 1px var(--navy)}.matrix .diagonal{display:block;text-align:center;font-size:14px;color:#9aabb9;line-height:32px}.matrix-legend{display:flex;align-items:center;justify-content:space-between;font-size:11px;color:var(--muted);gap:7px;margin:5px 0 2px;padding-left:21px}.matrix-legend .gradient{height:7px;flex:1;max-width:160px;background:linear-gradient(90deg,#d7b67f,#f7f9fb,#6aaeb7)}.cluster{margin-top:12px;display:block;width:100%}.cluster-caption{font-size:12px;color:var(--muted);margin:1px 0 0}.footer{padding-top:21px;margin-top:24px;border-top:1px solid var(--line);display:flex;gap:16px;justify-content:space-between;flex-wrap:wrap;color:var(--muted);font-size:12px}.footer p{margin:0;max-width:980px}svg text{font-family:inherit;fill:var(--muted);font-size:12px}svg .axis-title{font-size:12px;fill:var(--ink)}svg .grid{stroke:#e6edf3;stroke-width:1}svg .axis{stroke:#c8d6e0;stroke-width:1}svg .label{font-size:12px;fill:var(--navy);font-weight:600}svg .current-label{font-size:12px;fill:var(--amber);font-weight:600}.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);border:0}noscript{display:block;padding:20px;background:#fff4df;color:#563605}
+@media(max-width:1100px){main{padding:24px 20px}.panels{grid-template-columns:1fr 1fr}.panel:last-child{grid-column:1/-1;display:grid;grid-template-columns:1fr 1fr;gap:0 28px}.panel:last-child h2,.panel:last-child>.panel-note{grid-column:1/-1}.matrix-wrap{grid-row:3/6}.matrix-legend{display:none}.cluster{margin-top:2px}.panel:last-child .detail{min-height:auto}.panel:last-child .cluster-caption{align-self:start}.panel-note{min-height:0}.matrix button{font-size:12px;min-height:37px}}
+@media(max-width:700px){main{padding:18px 14px 25px}h1{font-size:27px}.brand span{display:none}.eyebrow{margin-top:24px}.controls{grid-template-columns:1fr;gap:13px;padding:17px}.buttons{justify-content:flex-end}.panels{grid-template-columns:1fr}.panel{padding:19px 16px}.panel:last-child{display:block}.matrix button{font-size:12px;min-height:36px}.matrix-legend{display:flex}.matrix-wrap{overflow-x:auto}.intro{font-size:14px}.panel-note{min-height:0}.detail{min-height:0}.cluster{margin-top:13px}}
+@media(prefers-reduced-motion:no-preference){button,select{transition:background-color .13s ease,border-color .13s ease}}
+</style>
+</head>
+<body>
+<main>
+<header><a class="brand" href="https://github.com/s20011208/D-SIDE">D-SIDE<span>Distributional Selective Integration for Dynamics Estimation</span></a><a href="https://github.com/s20011208/D-SIDE#inside-the-algorithm">Back to the repository ↗</a></header>
+<p class="eyebrow">Frozen numerical illustration · Seed 2026103000</p>
+<h1>From paired states to source clustering</h1>
+<p class="intro">For an example of second-order dynamic systems, inspect how labeled scalar statistics connect noisy trajectories to distributional evidence and a shared source group. All curves, statistics, weights and decisions below come from the saved experiment.</p>
+<noscript>This panel needs JavaScript. The repository README includes a static preview of the same saved example.</noscript>
+<section class="controls" aria-label="Explore saved statistics">
+<div><label for="source-pair">Source pair</label><select id="source-pair"></select></div>
+<div><label for="sample" class="range-label"><span>Retained statistic</span><output id="sample-counter" for="sample"></output></label><input id="sample" type="range" min="0" max="0" value="0" step="1" aria-label="Retained statistic index"></div>
+<div class="buttons"><button id="previous" class="nav" type="button">← Previous</button><button id="next" class="nav" type="button">Next →</button></div>
+</section>
+<section class="panels" aria-label="Interactive D-SIDE algorithm panels">
+<article class="panel">
+<h2><span class="step">01</span>Equal-state pairing</h2>
+<p class="panel-note">Select a retained match along the two smoothed training curves.</p>
+<svg id="pairing" class="plot" role="img" aria-label="Selected source curves, noisy observations and matched points"></svg>
+<div class="legend"><span><i class="swatch"></i><b id="legend-g">Source 0</b></span><span><i class="swatch teal"></i><b id="legend-h">Source 5</b></span><span><i class="swatch amber"></i>Equal position</span></div>
+<div id="pair-detail" class="detail" aria-live="polite"></div>
+</article>
+<article class="panel">
+<h2><span class="step">02</span>Distribution</h2>
+<p class="panel-note">The global distribution stays fixed; the chosen pair is highlighted.</p>
+<svg id="distribution" class="plot" role="img" aria-label="Global reliability-weighted distribution, fitted mixture and selected statistic"></svg>
+<div class="legend"><span><i class="swatch bars"></i>All pairs</span><span><i class="swatch amber"></i>Selected pair contribution</span><span><i class="swatch"></i>Fitted mixture</span></div>
+<div id="distribution-detail" class="detail"></div>
+</article>
+<article class="panel">
+<h2><span class="step">03</span>Source clustering</h2>
+<p class="panel-note">Click an evidence cell to inspect its source pair. The fitted partition stays fixed.</p>
+<div class="matrix-wrap"><table id="evidence" class="matrix" aria-label="Source-pair evidence matrix. Select a cell to inspect its statistics."></table></div>
+<div class="matrix-legend"><span>Negative evidence</span><i class="gradient"></i><span>Positive evidence</span></div>
+<svg id="clustering" class="cluster" role="img" aria-label="Sources zero to five share a fitted function; six and seven retain independent models"></svg>
+<p class="cluster-caption">Shared function: 0–5 · Independent fits: 6, 7</p>
+<div id="cluster-detail" class="detail"></div>
+</article>
+</section>
+<p class="hint">Choose a source pair or click a matrix cell, then move the slider. Click a match on the curve plot or a location in the distribution to select the nearest saved statistic for that pair. Keyboard users can use the pair menu, slider arrow keys and Previous / Next buttons.</p>
+<footer class="footer"><p><strong>Reading the display.</strong> Each source has one training curve with 45 noisy position observations. Curves are shown on the same 61-node interpolation grid used for state matching, so saved matched points lie on the displayed curves. Reliability downweighting is applied only to the global density, not again to source evidence. The shaded peak region is descriptive, not a confidence interval. Exploring this panel does not refit models or alter the selected group; no true source labels are used by these controls.</p></footer>
+<div id="status" class="sr-only" role="status" aria-live="polite"></div>
+</main>
+<script id="saved-data" type="application/json">/*__DSIDE_SAVED_DATA__*/</script>
+<script>
+'use strict';
+const DATA=JSON.parse(document.getElementById('saved-data').textContent);
+const NS='http://www.w3.org/2000/svg';
+const C={navy:'#102a43',teal:'#087f8c',amber:'#bd791d',muted:'#60768b',line:'#dae5ed'};
+const byPair=new Map();
+for(const row of DATA.rows){const key=`${row.g}_${row.h}`;if(!byPair.has(key))byPair.set(key,[]);byPair.get(key).push(row);}
+const pairs=Array.from(byPair.keys()).sort((a,b)=>{const x=a.split('_').map(Number),y=b.split('_').map(Number);return x[0]-y[0]||x[1]-y[1];});
+let key='0_5',index=0;
+const pairSelect=document.getElementById('source-pair'),slider=document.getElementById('sample');
+for(const p of pairs){const [g,h]=p.split('_');const option=document.createElement('option');option.value=p;option.textContent=`Sources ${g} and ${h}`;pairSelect.appendChild(option);}
+pairSelect.value=key;
+function el(name,attrs={},text){const n=document.createElementNS(NS,name);for(const [k,v] of Object.entries(attrs))n.setAttribute(k,v);if(text!==undefined)n.textContent=text;return n;}
+function add(parent,name,attrs={},text){const n=el(name,attrs,text);parent.appendChild(n);return n;}
+function lin(a,b,c,d){return x=>c+(x-a)/(b-a)*(d-c);}
+function fmt(x,n=4){return Math.abs(x)>999||Math.abs(x)<.0001&&x!==0?x.toExponential(3):x.toFixed(n);}
+function extent(values){let lo=Math.min(...values),hi=Math.max(...values);const pad=(hi-lo||1)*.10;return [lo-pad,hi+pad];}
+function line(xs,ys,sx,sy){return xs.map((x,i)=>`${i?'L':'M'}${sx(x).toFixed(3)},${sy(ys[i]).toFixed(3)}`).join(' ');}
+function plotFrame(svg,yDomain,xDomain,xlabel,ylabel){const w=Math.max(svg.getBoundingClientRect().width,240),h=288;svg.replaceChildren();svg.setAttribute('viewBox',`0 0 ${w} ${h}`);const box={l:51,r:w-12,t:22,b:h-45};const sx=lin(xDomain[0],xDomain[1],box.l,box.r),sy=lin(yDomain[0],yDomain[1],box.b,box.t);
+ for(let i=0;i<4;i++){const y=yDomain[0]+i*(yDomain[1]-yDomain[0])/3;add(svg,'line',{x1:box.l,y1:sy(y),x2:box.r,y2:sy(y),class:'grid'});add(svg,'text',{x:box.l-9,y:sy(y)+4,'text-anchor':'end'},Math.abs(y)<.00001?'0':y.toFixed(1));}
+ for(let i=0;i<4;i++){const x=xDomain[0]+i*(xDomain[1]-xDomain[0])/3;add(svg,'text',{x:sx(x),y:box.b+20,'text-anchor':'middle'},x.toFixed(1));}
+ add(svg,'path',{d:`M${box.l} ${box.t}V${box.b}H${box.r}`,fill:'none',class:'axis'});add(svg,'text',{x:(box.l+box.r)/2,y:h-4,'text-anchor':'middle',class:'axis-title'},xlabel);add(svg,'text',{transform:`translate(13 ${(box.t+box.b)/2}) rotate(-90)`,'text-anchor':'middle',class:'axis-title'},ylabel);return {w,h,box,sx,sy};}
+function screenPoint(svg,event){const p=svg.createSVGPoint();p.x=event.clientX;p.y=event.clientY;return p.matrixTransform(svg.getScreenCTM().inverse());}
+function drawPair(){const rows=byPair.get(key),r=rows[index],svg=document.getElementById('pairing');const a=DATA.training[r.g],b=DATA.training[r.h];const yd=extent([...a.observed_position,...b.observed_position,...a.selector_position,...b.selector_position]);const p=plotFrame(svg,yd,[0,3],'Training time','Position');
+ for(const [tr,color] of [[a,C.navy],[b,C.teal]]){for(let i=0;i<tr.time.length;i++)add(svg,'circle',{cx:p.sx(tr.time[i]),cy:p.sy(tr.observed_position[i]),r:2.5,fill:color,opacity:.23});add(svg,'path',{d:line(tr.smooth_time,tr.selector_position,p.sx,p.sy),fill:'none',stroke:color,'stroke-width':2.2});}
+ for(const rr of rows){for(const [t,color] of [[rr.time_p,C.navy],[rr.time_q,C.teal]])add(svg,'circle',{cx:p.sx(t),cy:p.sy(rr.state),r:2.3,fill:color,opacity:.22});}
+ add(svg,'line',{x1:p.sx(r.time_p),x2:p.sx(r.time_q),y1:p.sy(r.state),y2:p.sy(r.state),stroke:C.amber,'stroke-width':1.8,'stroke-dasharray':'5 4'});
+ for(const [t,color,label] of [[r.time_p,C.navy,'p'],[r.time_q,C.teal,'q']]){add(svg,'circle',{cx:p.sx(t),cy:p.sy(r.state),r:5.2,fill:color,stroke:'white','stroke-width':1.7});add(svg,'text',{x:p.sx(t)+7,y:p.sy(r.state)-9,class:'label'},label);}
+ svg.onclick=e=>{const q=screenPoint(svg,e);let best=0,d=Infinity;rows.forEach((v,i)=>{const nd=Math.min((p.sx(v.time_p)-q.x)**2+(p.sy(v.state)-q.y)**2,(p.sx(v.time_q)-q.x)**2+(p.sy(v.state)-q.y)**2);if(nd<d){d=nd;best=i;}});chooseIndex(best);};
+ document.getElementById('legend-g').textContent=`Source ${r.g}`;document.getElementById('legend-h').textContent=`Source ${r.h}`;
+ document.getElementById('pair-detail').innerHTML=`<div class="formula"><span class="math">T = N / D</span> = ${fmt(r.numerator)} / ${fmt(r.denominator)} = <strong>${fmt(r.statistic)}</strong></div>Matched position ${fmt(r.state,3)}; times ${fmt(r.time_p,3)} and ${fmt(r.time_q,3)}. Here N = b<sub>q</sub> − b<sub>p</sub> and D = A<sub>p</sub> − A<sub>q</sub>.`;
+}
+function erf(x){const sign=x<0?-1:1,t=1/(1+.3275911*Math.abs(x));return sign*(1-(((((1.061405429*t-1.453152027)*t+1.421413741)*t-.284496736)*t+.254829592)*t)*Math.exp(-x*x));}
+function mixture(z){const p=DATA.peak,s=p.sigma;const normalizer=.5*(erf((Math.PI/2-p.mu)/(s*Math.sqrt(2)))-erf((-Math.PI/2-p.mu)/(s*Math.sqrt(2))));return p.proportion*Math.exp(-.5*((z-p.mu)/s)**2)/(s*Math.sqrt(2*Math.PI)*normalizer)+(1-p.proportion)/Math.PI;}
+function drawDistribution(){const rows=byPair.get(key),r=rows[index],svg=document.getElementById('distribution'),bins=24,lo=-Math.PI/2,hi=Math.PI/2,step=(hi-lo)/bins;const global=Array(bins).fill(0),part=Array(bins).fill(0);const bin=z=>Math.max(0,Math.min(bins-1,Math.floor((z-lo)/step)));DATA.rows.forEach(v=>global[bin(v.z)]+=v.global_weight/step);rows.forEach(v=>part[bin(v.z)]+=v.global_weight/step);const yy=Math.max(...global,...Array.from({length:121},(_,i)=>mixture(lo+(hi-lo)*i/120)))*1.13;const p=plotFrame(svg,[0,yy],[lo,hi],'Transformed statistic z = arctan(T)','Weighted density');
+ add(svg,'rect',{x:p.sx(DATA.center[0]),y:p.box.t,width:p.sx(DATA.center[1])-p.sx(DATA.center[0]),height:p.box.b-p.box.t,fill:C.teal,opacity:.07});
+ global.forEach((v,i)=>{const x=p.sx(lo+i*step)+1,w=p.sx(lo+(i+1)*step)-p.sx(lo+i*step)-2;add(svg,'rect',{x,y:p.sy(v),width:w,height:p.box.b-p.sy(v),fill:'#b7d9df'});if(part[i]>0)add(svg,'rect',{x,y:p.sy(part[i]),width:w,height:p.box.b-p.sy(part[i]),fill:C.amber,opacity:.95});});
+ const xs=Array.from({length:181},(_,i)=>lo+(hi-lo)*i/180);add(svg,'path',{d:line(xs,xs.map(mixture),p.sx,p.sy),fill:'none',stroke:C.navy,'stroke-width':2.2});
+ add(svg,'line',{x1:p.sx(r.z),x2:p.sx(r.z),y1:p.box.t,y2:p.box.b,stroke:C.amber,'stroke-width':1.6,'stroke-dasharray':'4 3'});add(svg,'circle',{cx:p.sx(r.z),cy:p.sy(mixture(r.z)),r:4.3,fill:C.amber,stroke:'white','stroke-width':1});
+ const left=r.z>(lo+hi)/2;add(svg,'text',{x:p.sx(r.z)+(left?-5:5),y:p.box.t-7,'text-anchor':left?'end':'start',class:'current-label'},`z = ${fmt(r.z,3)}`);
+ svg.onclick=e=>{const q=screenPoint(svg,e),z=lo+(q.x-p.box.l)/(p.box.r-p.box.l)*(hi-lo);let best=0,d=Infinity;rows.forEach((v,i)=>{if(Math.abs(v.z-z)<d){d=Math.abs(v.z-z);best=i;}});chooseIndex(best);};
+ const mass=rows.reduce((a,v)=>a+v.global_weight,0);document.getElementById('distribution-detail').innerHTML=`<strong>${rows.length} retained statistics</strong> for this pair, contributing <strong>${(100*mass).toFixed(2)}%</strong> of global mass. This statistic has peak responsibility γ = ${fmt(r.responsibility,3)}. The pair highlight uses its actual global weights; the distribution and fitted peak are unchanged.`;
+}
+function mix(a,b,t){return '#'+a.match(/\w\w/g).map((v,i)=>Math.round(parseInt(v,16)*(1-t)+parseInt(b.match(/\w\w/g)[i],16)*t).toString(16).padStart(2,'0')).join('');}
+function drawEvidence(){const table=document.getElementById('evidence');if(!table.children.length){const head=document.createElement('tr');for(let j=-1;j<8;j++){const th=document.createElement('th');th.scope='col';th.textContent=j<0?'':j;head.appendChild(th);}table.appendChild(head);for(let g=0;g<8;g++){const tr=document.createElement('tr'),th=document.createElement('th');th.scope='row';th.textContent=g;tr.appendChild(th);for(let h=0;h<8;h++){const td=document.createElement('td');if(g===h){const s=document.createElement('span');s.className='diagonal';s.textContent='—';td.appendChild(s);}else{const value=DATA.evidence[g][h],button=document.createElement('button'),pk=`${Math.min(g,h)}_${Math.max(g,h)}`;button.type='button';button.dataset.pair=pk;button.textContent=value.toFixed(2);button.title=`Sources ${g} and ${h}: evidence ${value.toFixed(4)}`;button.setAttribute('aria-label',button.title+'. Select this source pair.');const t=Math.min(Math.abs(value)/.5,1);button.style.backgroundColor=value<0?mix('f7f9fb','d7b67f',t):mix('f7f9fb','6aaeb7',t);button.onclick=()=>choosePair(pk);td.appendChild(button);}tr.appendChild(td);}table.appendChild(tr);}}
+ table.querySelectorAll('button').forEach(b=>{b.classList.toggle('selected',b.dataset.pair===key);b.setAttribute('aria-pressed',b.dataset.pair===key?'true':'false');});
+ const [g,h]=key.split('_').map(Number);document.getElementById('cluster-detail').innerHTML=`Selected pair evidence <strong>E<sub>${g},${h}</sub> = ${fmt(DATA.evidence[g][h],4)}</strong>. Positive values favor grouping in the frozen objective; negative values oppose it. Evidence is a relative score, not a probability. Final group: <strong>{0, 1, 2, 3, 4, 5}</strong>.`;
+}
+function drawCluster(){const svg=document.getElementById('clustering'),w=Math.max(svg.getBoundingClientRect().width,240),h=116;svg.replaceChildren();svg.setAttribute('viewBox',`0 0 ${w} ${h}`);const panelWidth=(w-25)*.75,start=17,gap=(panelWidth-34)/5;add(svg,'rect',{x:4,y:22,width:panelWidth,height:58,rx:16,fill:'#edf6f7',stroke:'#c5e3e7'});add(svg,'text',{x:panelWidth/2+4,y:14,'text-anchor':'middle',class:'label'},'Joint estimation');
+ const chosen=key.split('_').map(Number);for(let g=0;g<8;g++){const x=g<6?start+g*gap:panelWidth+24,y=g<6?51:g===6?38:77;add(svg,'circle',{cx:x,cy:y,r:12,fill:g<6?C.teal:'#e3eaf0',stroke:chosen.includes(g)?C.navy:'none','stroke-width':2});add(svg,'text',{x,y:y+4,'text-anchor':'middle',style:`fill:${g<6?'white':C.navy};font-size:12px;font-weight:600`},g);}
+ add(svg,'text',{x:panelWidth+24,y:105,'text-anchor':'middle',style:'font-size:11px'},'Separate');
+}
+function choosePair(value){key=value;index=0;pairSelect.value=key;render();}
+function chooseIndex(value){index=Math.max(0,Math.min(byPair.get(key).length-1,Number(value)));render();}
+function render(){const rows=byPair.get(key);slider.max=rows.length-1;slider.value=index;document.getElementById('sample-counter').textContent=`${index+1} of ${rows.length}`;document.getElementById('previous').disabled=index===0;document.getElementById('next').disabled=index===rows.length-1;drawPair();drawDistribution();drawEvidence();drawCluster();document.getElementById('status').textContent=`Sources ${key.replace('_',' and ')}, retained statistic ${index+1} of ${rows.length}.`;
+ window.DSIDE_PANEL_STATE={pair:key,index,statistic:rows[index].statistic,sourcePoint:{g:rows[index].g,h:rows[index].h,time_p:rows[index].time_p,time_q:rows[index].time_q,state:rows[index].state},selected_sources:DATA.core.slice(),total_statistics:DATA.rows.length,global_mass:DATA.rows.reduce((a,v)=>a+v.global_weight,0)};}
+pairSelect.addEventListener('change',()=>choosePair(pairSelect.value));slider.addEventListener('input',()=>chooseIndex(slider.value));document.getElementById('previous').addEventListener('click',()=>chooseIndex(index-1));document.getElementById('next').addEventListener('click',()=>chooseIndex(index+1));
+let resizeTimer;new ResizeObserver(()=>{clearTimeout(resizeTimer);resizeTimer=setTimeout(()=>{drawPair();drawDistribution();drawCluster();},80);}).observe(document.querySelector('.panels'));
+render();
+</script>
+</body>
+</html>

@@ -22,9 +22,17 @@ python scripts/figures/build_figures.py
 
 The plotting script uses only NumPy, Matplotlib, and Python's standard library. It does not fit models or regenerate the simulation.
 
+To rebuild only the workflow and source-clustering panels:
+
+```bash
+python scripts/figures/build_figures.py --figures workflow source_selection
+```
+
 ## Interpretation
 
+- The workflow uses the generic integer-order equation `D^K_(omega_g) X = f_g(X)`, with `K >= 2`. The saved numerical example is second order (`K = 2`). Its equal-state schematic markers are computed on the drawn cubic Bezier curves at the same vertical coordinate, rather than positioned by eye.
 - The source-selection example was fixed as the first historical seed. The displayed source pair `(0, 5)` makes equal-state matching easy to see; the global histogram and evidence matrix use **every retained cross-source pair**.
+- The displayed curves use the actual **61-node matching grid**, extracted as every fifth node of the stored 301-point polynomial evaluation. Matching markers therefore lie on the same linearly interpolated segments used to form the statistics. The original noisy-observation scatter is unchanged.
 - Distribution colors use known simulation truth **only after selection**, for diagnostic display. The algorithm is not supplied with these labels or the number of related sources.
 - Histogram heights use the saved global weights, divided by bin width. Each labeled pair contributes according to its saved reliability mass. The fitted line uses the stored truncated-Gaussian-plus-uniform parameters.
 - The shaded distribution interval marks model enrichment. It is **not a confidence interval** and does not prove that a source is related.
