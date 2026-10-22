@@ -33,7 +33,7 @@ D_{\boldsymbol\omega_g}^{K}X_g(t)
 :=X_g^{(K)}(t)+\sum_{r=1}^{K-1}\omega_{g,r}X_g^{(r)}(t).
 $$
 
-Here, $\epsilon_{gj}$ is measurement noise, $X_g^{(r)}$ is the $r$th time derivative, $\boldsymbol\omega_g=(\omega_{g,1},\ldots,\omega_{g,K-1})^\top$ contains source-specific operator coefficients, and $f_g$ is an unknown smooth nonparametric function. The highest-order coefficient is fixed at one; position-linear effects are included in $f_g$.
+Here, $\epsilon_{gj}$ is measurement noise, $X_g^{(r)}$ denotes the time derivative of order $r$, $\boldsymbol\omega_g=(\omega_{g,1},\ldots,\omega_{g,K-1})^\top$ contains source-specific operator coefficients, and $f_g$ is an unknown smooth nonparametric function. The highest-order coefficient is fixed at one; position-linear effects are included in $f_g$.
 
 **Related sources have similar operator coefficients and nonlinear functions over overlapping state ranges.** Strongly heterogeneous sources differ substantially in one or both. D-SIDE uses the distribution of labeled trajectory contrasts to identify sources for joint dynamics estimation; other sources retain their independent fits.
 
