@@ -1,0 +1,519 @@
+{
+  "illustration_seed": 2026103000,
+  "panel_sha256": "2959943a3cc55cdd476e721e14e3d1600ffdd5cf32f27cc2c281c6948d19d864",
+  "plotting_bundle_sha256": "506d164796fcfb28936e696acfdb20a74c1ba483ce3ef40b31e0113a2bb93c2a",
+  "viewport": {
+    "width": 1240,
+    "height": 1500
+  },
+  "browser": "130.0.6723.31",
+  "frames": [
+    {
+      "file": "000.png",
+      "duration_ms": 1400,
+      "action": "1 \u00b7 Choose a source pair: sources 0 and 5",
+      "pair": "0_5",
+      "index": 0,
+      "statistic": 0.6647451586192744,
+      "selected_sources": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ]
+    },
+    {
+      "file": "001.png",
+      "duration_ms": 350,
+      "action": "2 \u00b7 Move the slider: follow matched points and their statistic",
+      "pair": "0_5",
+      "index": 0,
+      "statistic": 0.6647451586192744,
+      "selected_sources": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ]
+    },
+    {
+      "file": "002.png",
+      "duration_ms": 350,
+      "action": "2 \u00b7 Move the slider: follow matched points and their statistic",
+      "pair": "0_5",
+      "index": 2,
+      "statistic": 0.41191969701484943,
+      "selected_sources": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ]
+    },
+    {
+      "file": "003.png",
+      "duration_ms": 350,
+      "action": "2 \u00b7 Move the slider: follow matched points and their statistic",
+      "pair": "0_5",
+      "index": 4,
+      "statistic": 0.25164226031798,
+      "selected_sources": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ]
+    },
+    {
+      "file": "004.png",
+      "duration_ms": 350,
+      "action": "2 \u00b7 Move the slider: follow matched points and their statistic",
+      "pair": "0_5",
+      "index": 6,
+      "statistic": 0.17104099721727908,
+      "selected_sources": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ]
+    },
+    {
+      "file": "005.png",
+      "duration_ms": 350,
+      "action": "2 \u00b7 Move the slider: follow matched points and their statistic",
+      "pair": "0_5",
+      "index": 8,
+      "statistic": 0.16380962814177,
+      "selected_sources": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ]
+    },
+    {
+      "file": "006.png",
+      "duration_ms": 350,
+      "action": "2 \u00b7 Move the slider: follow matched points and their statistic",
+      "pair": "0_5",
+      "index": 10,
+      "statistic": 0.21925312327408858,
+      "selected_sources": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ]
+    },
+    {
+      "file": "007.png",
+      "duration_ms": 350,
+      "action": "2 \u00b7 Move the slider: follow matched points and their statistic",
+      "pair": "0_5",
+      "index": 12,
+      "statistic": 0.32254408517275207,
+      "selected_sources": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ]
+    },
+    {
+      "file": "008.png",
+      "duration_ms": 350,
+      "action": "2 \u00b7 Move the slider: follow matched points and their statistic",
+      "pair": "0_5",
+      "index": 14,
+      "statistic": 0.4520232156556573,
+      "selected_sources": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ]
+    },
+    {
+      "file": "009.png",
+      "duration_ms": 350,
+      "action": "2 \u00b7 Move the slider: follow matched points and their statistic",
+      "pair": "0_5",
+      "index": 16,
+      "statistic": 0.5679827903398733,
+      "selected_sources": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ]
+    },
+    {
+      "file": "010.png",
+      "duration_ms": 350,
+      "action": "2 \u00b7 Move the slider: follow matched points and their statistic",
+      "pair": "0_5",
+      "index": 18,
+      "statistic": 0.582020974750888,
+      "selected_sources": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ]
+    },
+    {
+      "file": "011.png",
+      "duration_ms": 350,
+      "action": "2 \u00b7 Move the slider: follow matched points and their statistic",
+      "pair": "0_5",
+      "index": 20,
+      "statistic": 0.27125589509479736,
+      "selected_sources": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ]
+    },
+    {
+      "file": "012.png",
+      "duration_ms": 1200,
+      "action": "3 \u00b7 Click an evidence cell: inspect sources 0 and 6",
+      "pair": "0_6",
+      "index": 0,
+      "statistic": -3.0867087330497918,
+      "selected_sources": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ]
+    },
+    {
+      "file": "013.png",
+      "duration_ms": 350,
+      "action": "The selected pair changes; the global fit and clustering stay fixed",
+      "pair": "0_6",
+      "index": 0,
+      "statistic": -3.0867087330497918,
+      "selected_sources": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ]
+    },
+    {
+      "file": "014.png",
+      "duration_ms": 350,
+      "action": "The selected pair changes; the global fit and clustering stay fixed",
+      "pair": "0_6",
+      "index": 6,
+      "statistic": -0.2279143876154242,
+      "selected_sources": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ]
+    },
+    {
+      "file": "015.png",
+      "duration_ms": 350,
+      "action": "The selected pair changes; the global fit and clustering stay fixed",
+      "pair": "0_6",
+      "index": 11,
+      "statistic": 1.0606225267697689,
+      "selected_sources": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ]
+    },
+    {
+      "file": "016.png",
+      "duration_ms": 350,
+      "action": "The selected pair changes; the global fit and clustering stay fixed",
+      "pair": "0_6",
+      "index": 17,
+      "statistic": 3.9673397656218623,
+      "selected_sources": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ]
+    },
+    {
+      "file": "017.png",
+      "duration_ms": 350,
+      "action": "The selected pair changes; the global fit and clustering stay fixed",
+      "pair": "0_6",
+      "index": 23,
+      "statistic": 0.8736851911849529,
+      "selected_sources": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ]
+    },
+    {
+      "file": "018.png",
+      "duration_ms": 350,
+      "action": "The selected pair changes; the global fit and clustering stay fixed",
+      "pair": "0_6",
+      "index": 29,
+      "statistic": 0.3952183581690382,
+      "selected_sources": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ]
+    },
+    {
+      "file": "019.png",
+      "duration_ms": 350,
+      "action": "The selected pair changes; the global fit and clustering stay fixed",
+      "pair": "0_6",
+      "index": 34,
+      "statistic": -0.09285907126960771,
+      "selected_sources": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ]
+    },
+    {
+      "file": "020.png",
+      "duration_ms": 350,
+      "action": "The selected pair changes; the global fit and clustering stay fixed",
+      "pair": "0_6",
+      "index": 40,
+      "statistic": -1.2888457616157112,
+      "selected_sources": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ]
+    },
+    {
+      "file": "021.png",
+      "duration_ms": 1200,
+      "action": "4 \u00b7 Switch sources: inspect sources 6 and 7",
+      "pair": "6_7",
+      "index": 0,
+      "statistic": -2.2515396831808467,
+      "selected_sources": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ]
+    },
+    {
+      "file": "022.png",
+      "duration_ms": 350,
+      "action": "Compare saved statistics across source pairs",
+      "pair": "6_7",
+      "index": 0,
+      "statistic": -2.2515396831808467,
+      "selected_sources": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ]
+    },
+    {
+      "file": "023.png",
+      "duration_ms": 350,
+      "action": "Compare saved statistics across source pairs",
+      "pair": "6_7",
+      "index": 6,
+      "statistic": -0.6093515704387852,
+      "selected_sources": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ]
+    },
+    {
+      "file": "024.png",
+      "duration_ms": 350,
+      "action": "Compare saved statistics across source pairs",
+      "pair": "6_7",
+      "index": 12,
+      "statistic": 0.25135164844155533,
+      "selected_sources": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ]
+    },
+    {
+      "file": "025.png",
+      "duration_ms": 350,
+      "action": "Compare saved statistics across source pairs",
+      "pair": "6_7",
+      "index": 18,
+      "statistic": 0.900352358115911,
+      "selected_sources": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ]
+    },
+    {
+      "file": "026.png",
+      "duration_ms": 350,
+      "action": "Compare saved statistics across source pairs",
+      "pair": "6_7",
+      "index": 23,
+      "statistic": 1.909547315911704,
+      "selected_sources": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ]
+    },
+    {
+      "file": "027.png",
+      "duration_ms": 350,
+      "action": "Compare saved statistics across source pairs",
+      "pair": "6_7",
+      "index": 29,
+      "statistic": 1.8616152059028284,
+      "selected_sources": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ]
+    },
+    {
+      "file": "028.png",
+      "duration_ms": 350,
+      "action": "Compare saved statistics across source pairs",
+      "pair": "6_7",
+      "index": 35,
+      "statistic": 1.5366088012074453,
+      "selected_sources": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ]
+    },
+    {
+      "file": "029.png",
+      "duration_ms": 350,
+      "action": "Compare saved statistics across source pairs",
+      "pair": "6_7",
+      "index": 41,
+      "statistic": 0.8798346359629429,
+      "selected_sources": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ]
+    },
+    {
+      "file": "030.png",
+      "duration_ms": 2200,
+      "action": "Click this preview to explore the interactive panel yourself",
+      "pair": "0_5",
+      "index": 10,
+      "statistic": 0.21925312327408858,
+      "selected_sources": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ]
+    }
+  ],
+  "javascript_errors": [],
+  "scope": "Real offline panel screenshots. Only displayed pair/sample changes; no model is refitted.",
+  "image_size": [
+    1180,
+    940
+  ],
+  "encoded_frames": 31,
+  "duration_ms": 15450,
+  "gif_bytes": 2875667,
+  "decoded_frames_match_quantized_recording": true,
+  "playback": "Automatic looping demonstration; click the README image to interact."
+}

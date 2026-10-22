@@ -9,6 +9,8 @@ These figures use the saved **density-only reliability weighting** variant of D-
 | `source_selection.svg` | Retained equal-state pairs, weighted global distribution, signed source evidence, selected group | Actual saved run, seed **2026103000**, new damping and **original** initial conditions |
 | `prediction.svg` | A fixed first held-out trajectory and per-source prediction errors | First source/first test trial from seed 2026103000; aggregate panel uses **all 10 retrospective seeds** 2026103000–2026103009 |
 | `figure_data.json` | Self-contained numerical input and original source-file hashes | No checkpoints, external workspace, private absolute paths, or future inputs are needed |
+| `algorithm_demo.gif` | Automatic, looping recording of the complete interactive panel | Actual offline panel controls, fixed seed 2026103000; no model refits |
+| `algorithm_demo.png` / `algorithm_demo.json` | Still preview and recording manifest | Frame states, timing, and input hashes for the animation |
 
 SVG is the main README format; numerical plots also have PNG versions. Hero/workflow PNG previews are available when the native librsvg renderer is installed. The build script does not require it for the primary SVG figures.
 
@@ -21,6 +23,21 @@ python scripts/figures/build_figures.py
 ```
 
 The plotting script uses only NumPy, Matplotlib, and Python's standard library. It does not fit models or regenerate the simulation.
+
+### Rebuild the automatic demonstration
+
+The README animation records the committed offline panel with a fixed sequence of real control interactions: sources `(0, 5)`, `(0, 6)`, `(6, 7)`, then back to `(0, 5)`. It preserves the original statistics, global distribution, evidence and selected group. This is a display demonstration, not a new simulation or selection experiment.
+
+Optional recording tools are Node.js, Playwright 1.48.2 with Chromium, and Pillow (already included in the Python lock). From the repository root:
+
+```bash
+npm install --prefix runs/preview-tools --no-save playwright@1.48.2
+node runs/preview-tools/node_modules/playwright/cli.js install chromium
+NODE_PATH="$PWD/runs/preview-tools/node_modules" node scripts/figures/record_demo.cjs
+python scripts/figures/build_animation.py
+```
+
+The recorder writes PNG frames and a manifest to `runs/animation-frames/`; preserve that directory before a new recording. The encoder uses one shared palette and verifies every decoded frame against its full quantized screenshot, preventing stale text or markers between frames. Neither the optional browser tools nor intermediate frames belong in version control.
 
 To rebuild only the workflow and source-clustering panels:
 
